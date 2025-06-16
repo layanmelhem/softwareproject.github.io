@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Redirect</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('imgs/home.png') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: .5;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        select {
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            width: 220px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Select Your Role</h1>
+        <select id="userRole">
+            <option value="" disabled selected>Select a role</option>
+            <option value="serviceprovider_loginpage.html">Service Provider</option>
+            <option value="customer_loginpage.html">Customer</option>
+            <option value="admin_loginpage.html">Admin</option>
+        </select>
+        <br>
+        <button onclick="redirectToLogin()">Go</button>
+    </div>
+
+    <script>
+        function redirectToLogin() {
+            const selectedRole = document.getElementById('userRole').value;
+            if (selectedRole) {
+                window.location.href = selectedRole;
+            } else {
+                alert("Please select a role.");
+            }
+        }
+    </script>
+
+</body>
+</html>
